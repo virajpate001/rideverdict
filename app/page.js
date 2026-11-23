@@ -1,69 +1,53 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import PostCard from '@/components/PostCard';
+import { getAllPosts, categories } from '@/lib/posts';
+import { cld } from '@/lib/utils';
+
+export const metadata = { alternates: { canonical: '/' } };
 
 export default function Home() {
+  const latest = getAllPosts().slice(0, 6);
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.js</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="hero"><div className="container">
+        <span className="eyebrow">Compare. Review. Decide.</span>
+        <h1>Compare Bikes, Read Expert Reviews &amp; Find the Best Motorcycle in India</h1>
+        <p>Compare bike prices, mileage, specifications, features, and expert reviews to make the right buying decision.</p>
+        <Link href="/blog/" className="btn">View All Blogs</Link>
+      </div></section>
+
+      <section className="section"><div className="container">
+        <div className="section-head"><h2>Explore Bike Comparisons, Reviews &amp; Buying Guides</h2><Link href="/blog/">View All Blogs →</Link></div>
+        <div className="grid cat-grid">
+          {categories.slice(0, 5).map((c) => (
+            <Link key={c.slug} href={`/category/${c.slug}/`} className="cat-tile">
+              {c.image && <img src={cld(c.image, 500)} alt={c.name} loading="lazy" />}
+              <span>{c.name}</span>
+            </Link>
+          ))}
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div></section>
+
+      <section className="section alt"><div className="container">
+        <div className="section-head"><h2>Latest Blogs</h2><Link href="/blog/">View All Blogs →</Link></div>
+        <div className="grid">{latest.map((p) => <PostCard key={p.slug} post={p} />)}</div>
+      </div></section>
+
+      <section className="section"><div className="container">
+        <div className="section-head"><h2>Free Bike Tools</h2></div>
+        <div className="grid">
+          <Link className="card card-body" href="/bike-emi-calculator/"><h3>Bike EMI Calculator</h3><p>Plan your monthly payment.</p></Link>
+          <Link className="card card-body" href="/fuel-cost-calculator/"><h3>Fuel Cost Calculator</h3><p>Know your cost per km.</p></Link>
+          <Link className="card card-body" href="/bike-maintenance-cost-calculator/"><h3>Maintenance Calculator</h3><p>Estimate yearly running costs.</p></Link>
         </div>
-      </main>
-    </div>
+      </div></section>
+
+      <section className="section alt"><div className="container" style={{ maxWidth: 800 }}>
+        <span className="eyebrow">Compare. Review. Decide.</span>
+        <h2>About us</h2>
+        <p>RideVerdict helps motorcycle fans to compare, review and find the best bikes available in India. Our mission is to deliver accurate information and expert insights to empower smarter buying decisions.</p>
+        <Link href="/about-us/" className="btn">Read More</Link>
+      </div></section>
+    </>
   );
 }
