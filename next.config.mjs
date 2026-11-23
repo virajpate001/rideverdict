@@ -1,8 +1,6 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  output: 'export',      // generates static HTML in /out
+  trailingSlash: true,   // /about-us/ → matches your WordPress URLs
+  images: { unoptimized: true }, // Cloudinary handles optimisation
 };
-
 export default nextConfig;

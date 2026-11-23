@@ -1,0 +1,8 @@
+[
+  { "slug": "bike-comparisons", "name": "Bike Comparisons", "description": "Side-by-side bike comparisons covering price, mileage, performance and features.", "image": "" },
+  { "slug": "bike-reviews", "name": "Bike Reviews", "description": "Honest, in-depth motorcycle reviews for Indian riders.", "image": "" },
+  { "slug": "best-bikes", "name": "Buying Guides", "description": "Best bikes by budget, segment and use-case.", "image": "" },
+  { "slug": "upcoming-bikes", "name": "Upcoming Bikes", "description": "New launches and upcoming motorcycles in India.", "image": "" },
+  { "slug": "bike-news", "name": "Bike News", "description": "Latest news from the Indian motorcycle industry.", "image": "" },
+  { "slug": "electric-bikes", "name": "Electric Bikes", "description": "Electric motorcycles and scooters in India.", "image": "" }
+]
