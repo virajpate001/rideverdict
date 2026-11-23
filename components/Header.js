@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container">
-        <Link href="/"><img src="/logo-white.png" alt="RideVerdict" style={{ height: 36, width: 'auto' }} /></Link>
+        <Link href="/"><img src="/logo-white.webp" alt="RideVerdict" style={{ height: 36, width: 'auto' }} /></Link>
         <button className="menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle menu">☰</button>
         <nav>
           <ul className={`nav ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>

@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <img src="/logo-white.png" alt="RideVerdict" style={{ height: 36, width: 'auto', marginBottom: 12 }} />
+            <img src="/logo-white.webp" alt="RideVerdict" style={{ height: 36, width: 'auto', marginBottom: 12 }} />
             <p>RideVerdict.in is India’s trusted bike comparison and review platform with detailed comparisons, expert reviews, buying guides and the latest bike news.</p>
           </div>
           <div><h4>Quick Links</h4><ul>
