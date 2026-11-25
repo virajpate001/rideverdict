@@ -1,4 +1,6 @@
 import EmiCalculator from '@/components/calculators/EmiCalculator';
+import PageHero from '@/components/PageHero';
+
 export const metadata = {
   title: 'Bike EMI Calculator India',
   description: 'Calculate your monthly bike loan EMI, total interest and total payable amount.',
@@ -6,10 +8,11 @@ export const metadata = {
 };
 export default function Page() {
   return (
-    <div className="container section">
-      <h1>Bike EMI Calculator</h1>
-      <p>Estimate your monthly payment before you visit the showroom.</p>
-      <EmiCalculator />
-    </div>
+  <>
+      <PageHero eyebrow="Free tool" lines={['Bike EMI', <em key="c" className="hl">calculator.</em>]}>
+        Estimate your monthly payment before you visit the showroom.
+      </PageHero>
+      <div className="container pad-b"><EmiCalculator /></div>
+    </>
   );
 }

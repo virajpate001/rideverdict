@@ -6,6 +6,7 @@ import PostCard from '@/components/PostCard';
 import JsonLd from '@/components/JsonLd';
 import { cld, formatDate } from '@/lib/utils';
 import site from '@/content/site.json';
+import ReadingProgress from '@/components/ReadingProgress';
 
 export const dynamicParams = false;
 export const generateStaticParams = () => getAllPosts().map((p) => ({ slug: p.slug }));
@@ -55,26 +56,50 @@ export default async function PostPage({ params }) {
       mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
     });
 
-  return (
+    return (
     <>
       <JsonLd data={schema} />
-      <article className="article">
-        <p className="meta"><Link href="/">Home</Link> › <Link href={`/category/${post.category}/`}>{cat?.name}</Link></p>
-        <h1>{post.title}</h1>
-        <p className="meta">By {post.author} · {formatDate(post.date)}{post.updated && post.updated !== post.date && ` · Updated ${formatDate(post.updated)}`} · {post.readingTime} min read</p>
-        {post.image?.url && <img className="hero-img" src={cld(post.image.url, 1200)} alt={post.image.alt || post.title} />}
-        {headings.length > 2 && (
-          <nav className="toc"><strong>In this article</strong>
-            <ol>{headings.map((h) => <li key={h.id}><a href={`#${h.id}`}>{h.text}</a></li>)}</ol>
-          </nav>
-        )}
-        <div className="prose"><BlockRenderer blocks={post.content} /></div>
+      <ReadingProgress />
+      <article className="page-top">
+        <div className="container">
+          <header className="article-head">
+            <p className="crumbs"><Link href="/">Home</Link> / <Link href={`/category/${post.category}/`}>{cat?.name}</Link></p>
+            <h1 className="display" data-lines>
+              <span className="line"><span>{post.title}</span></span>
+            </h1>
+            <div className="article-meta" data-reveal data-delay=".2">
+              <span>By {post.author}</span>
+              <span>{formatDate(post.date)}</span>
+              {post.updated && post.updated !== post.date && <span>Updated {formatDate(post.updated)}</span>}
+              <span>{post.readingTime} min read</span>
+            </div>
+          </header>
+
+          {post.image?.url && (
+            <div className="article-cover" data-mask>
+              <img src={cld(post.image.url, 1400)} alt={post.image.alt || post.title} />
+            </div>
+          )}
+
+          <div className="article-layout pad-b">
+            <div className="prose"><BlockRenderer blocks={post.content} /></div>
+            {headings.length > 2 && (
+              <aside className="toc" aria-label="Table of contents">
+                <strong>In this article</strong>
+                <ol>{headings.map((h) => <li key={h.id}><a href={`#${h.id}`}>{h.text}</a></li>)}</ol>
+              </aside>
+            )}
+          </div>
+        </div>
       </article>
+
       {related.length > 0 && (
-        <section className="section alt"><div className="container">
-          <div className="section-head"><h2>Related Articles</h2></div>
-          <div className="grid">{related.map((p) => <PostCard key={p.slug} post={p} />)}</div>
-        </div></section>
+        <section className="section alt">
+          <div className="container">
+            <div className="section-head"><h2 className="h2" data-reveal>Keep <em className="hl">reading</em></h2></div>
+            <div className="grid-3" data-stagger>{related.map((p) => <PostCard key={p.slug} post={p} />)}</div>
+          </div>
+        </section>
       )}
     </>
   );

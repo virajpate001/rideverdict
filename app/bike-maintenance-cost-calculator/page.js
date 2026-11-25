@@ -1,4 +1,6 @@
 import MaintenanceCalculator from '@/components/calculators/MaintenanceCalculator';
+import PageHero from '@/components/PageHero';
+
 export const metadata = {
   title: 'Bike Maintenance Cost Calculator',
   description: 'Estimate your yearly bike maintenance expenses.',
@@ -6,10 +8,11 @@ export const metadata = {
 };
 export default function Page() {
   return (
-    <div className="container section">
-      <h1>Bike Maintenance Cost Calculator</h1>
-      <p>Estimate your yearly bike maintenance expenses.</p>
-      <MaintenanceCalculator />
-    </div>
+    <>
+      <PageHero eyebrow="Free tool" lines={['Maintenance', <em key="c" className="hl">calculator.</em>]}>
+        Estimate your yearly bike maintenance expenses.
+      </PageHero>
+      <div className="container pad-b"><MaintenanceCalculator /></div>
+    </>
   );
 }

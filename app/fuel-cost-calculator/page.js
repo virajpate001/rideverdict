@@ -1,4 +1,5 @@
 import FuelCalculator from '@/components/calculators/FuelCalculator';
+import PageHero from '@/components/PageHero';
 export const metadata = {
   title: 'Bike FuelCalculator India',
   description: 'Estimate your bike fuel expenses instantly.',
@@ -6,10 +7,13 @@ export const metadata = {
 };
 export default function Page() {
   return (
-    <div className="container section">
-      <h1>Fuel Cost Calculator</h1>
-      <p>Estimate your bike's fuel expenses instantly.</p>
-      <FuelCalculator />
-    </div>
+  
+
+     <>
+      <PageHero eyebrow="Fuel cost" lines={['Bike EMI', <em key="c" className="hl">calculator.</em>]}>
+        Estimate your bike's fuel expenses instantly.
+      </PageHero>
+      <div className="container pad-b"><FuelCalculator /></div>
+    </>
   );
 }

@@ -1,6 +1,8 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const links = [
   ['Home', '/'], ['All Blog', '/blog/'],
@@ -12,19 +14,60 @@ const links = [
 ];
 
 export default function Header() {
+  const path = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const isActive = (h) => (h === '/' ? path === '/' : path.startsWith(h));
+
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 20);
+    on();
+    window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, []);
+  useEffect(() => setOpen(false), [path]);
+  useEffect(() => { document.documentElement.classList.toggle('menu-open', open); }, [open]);
+
   return (
-    <header className="site-header">
-      <div className="container">
-        <Link href="/"><img src="/white-logo.webp" alt="RideVerdict" style={{ height: 36, width: 'auto' }} /></Link>
-        <button className="menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle menu">☰</button>
-        <nav>
-          <ul className={`nav ${open ? 'open' : ''}`} onClick={() => setOpen(false)}>
-            {links.map(([label, href]) => <li key={href}><Link href={href}>{label}</Link></li>)}
-            <li><Link href="/search/">Search</Link></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <>
+      <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+        <div className="container">
+          <Link href="/" aria-label="RideVerdict home">
+            <img src="/logo-white.png" alt="RideVerdict" style={{ height: 34, width: 'auto' }} />
+          </Link>
+          <nav aria-label="Main">
+            <ul className="nav">
+              {links.map(([l, h]) => (
+                <li key={h}><Link href={h} className={isActive(h) ? 'active' : ''}>{l}</Link></li>
+              ))}
+              <li><Link href="/search/" className={isActive('/search/') ? 'active' : ''}>Search</Link></li>
+            </ul>
+          </nav>
+          <button className={`burger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
+            <i /><i />
+          </button>
+        </div>
+      </header>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="mobile-menu"
+            initial={{ clipPath: 'inset(0 0 100% 0)' }}
+            animate={{ clipPath: 'inset(0 0 0% 0)' }}
+            exit={{ clipPath: 'inset(0 0 100% 0)' }}
+            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+          >
+            <ul>
+              {[...links, ['Search', '/search/']].map(([l, h], i) => (
+                <motion.li key={h} initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.25 + i * 0.05, duration: 0.5 }}>
+                  <Link href={h} className={isActive(h) ? 'active' : ''}>{l}</Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
