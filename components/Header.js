@@ -34,7 +34,7 @@ export default function Header() {
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <Link href="/" aria-label="RideVerdict home">
-            <img src="/logo-white.png" alt="RideVerdict" style={{ height: 34, width: 'auto' }} />
+            <img src="/white-logo.webp" alt="RideVerdict" style={{ height: 34, width: 'auto' }} />
           </Link>
 
           <div className="header-right">
