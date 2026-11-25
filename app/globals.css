@@ -1253,3 +1253,7 @@ html.search-open{overflow:hidden}
   .sm-close{display:block}
   .sm-foot{justify-content:flex-end}
 }
+
+.cat-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.cat-pills a{padding:7px 14px;border:1px solid var(--border);border-radius:999px;font:700 11px var(--f-sub);letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);transition:border-color .3s,color .3s,background .3s}
+.cat-pills a:hover{border-color:var(--accent);color:var(--text);background:rgba(237,27,36,.08)}

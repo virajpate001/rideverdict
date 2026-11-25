@@ -17,7 +17,7 @@ export function GET() {
   const items = [
     ...getAllPosts().map((p) => ({
       k: 'post', t: p.title, u: `/${p.slug}/`, s: p.excerpt,
-      c: getCategory(p.category)?.name || '', g: p.tags || [],
+            c: p.categories.map((s) => getCategory(s)?.name).filter(Boolean).join(', '),
       i: thumb(p.image?.url), d: p.date, f: !!p.featured,
     })),
     ...categories.map((c) => ({

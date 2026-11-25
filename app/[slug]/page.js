@@ -29,7 +29,8 @@ export default async function PostPage({ params }) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
-  const cat = getCategory(post.category);
+  const cats = post.categories.map(getCategory);
+  const cat = cats[0]; // primary (breadcrumb + schema)
   const headings = getHeadings(post);
   const related = getRelated(post, 3);
   const url = `${site.url}/${post.slug}/`;
@@ -37,7 +38,7 @@ export default async function PostPage({ params }) {
 
   const schema = [
     {
-      '@context': 'https://schema.org', '@type': 'Article',
+      '@context': 'https://schema.org', '@type': 'Article',  articleSection: cats.map((c) => c.name),
       headline: post.title, description: post.excerpt, image: post.image?.url,
       datePublished: post.date, dateModified: post.updated || post.date,
       author: { '@type': 'Person', name: post.author || 'RideVerdict Team' },
@@ -72,6 +73,9 @@ export default async function PostPage({ params }) {
               <span>{formatDate(post.date)}</span>
               {post.updated && post.updated !== post.date && <span>Updated {formatDate(post.updated)}</span>}
               <span>{post.readingTime} min read</span>
+              <div className="cat-pills" data-reveal data-delay=".3">
+              {cats.map((c) => <Link key={c.slug} href={`/category/${c.slug}/`}>{c.name}</Link>)}
+            </div>
             </div>
           </header>
 
