@@ -25,6 +25,7 @@ export default function MotionProvider() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     lenis = new Lenis({ lerp: 0.1, anchors: { offset: -100 } });
+     window.__lenis = lenis;
     lenis.on('scroll', ScrollTrigger.update);
     const tick = (t) => lenis.raf(t * 1000);
     gsap.ticker.add(tick);
@@ -37,6 +38,7 @@ export default function MotionProvider() {
       gsap.ticker.remove(tick);
       lenis.destroy();
       lenis = null;
+      delete window.__lenis;        
     };
   }, []);
 

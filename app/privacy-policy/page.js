@@ -7,4 +7,4 @@ export default function privacy() {
       <p>We publish detailed reviews that compare price, mileage, performance, features, comfort and ownership experience, and we make it easy to pick the right motorbike by comparing them side by side.</p>
     </div>
   );
-}
+} 

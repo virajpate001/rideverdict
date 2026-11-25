@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import SearchButton from './SearchButton';
 
 const links = [
   ['Home', '/'], ['All Blog', '/blog/'],
@@ -33,19 +34,22 @@ export default function Header() {
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <Link href="/" aria-label="RideVerdict home">
-            <img src="/white-logo.webp" alt="RideVerdict" style={{ height: 34, width: 'auto' }} />
+            <img src="/logo-white.png" alt="RideVerdict" style={{ height: 34, width: 'auto' }} />
           </Link>
-          <nav aria-label="Main">
-            <ul className="nav">
-              {links.map(([l, h]) => (
-                <li key={h}><Link href={h} className={isActive(h) ? 'active' : ''}>{l}</Link></li>
-              ))}
-              <li><Link href="/search/" className={isActive('/search/') ? 'active' : ''}>Search</Link></li>
-            </ul>
-          </nav>
-          <button className={`burger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
-            <i /><i />
-          </button>
+
+          <div className="header-right">
+            <nav aria-label="Main">
+              <ul className="nav">
+                {links.map(([l, h]) => (
+                  <li key={h}><Link href={h} className={isActive(h) ? 'active' : ''}>{l}</Link></li>
+                ))}
+              </ul>
+            </nav>
+            <SearchButton />
+            <button className={`burger ${open ? 'open' : ''}`} onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
+              <i /><i />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -59,7 +63,7 @@ export default function Header() {
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
           >
             <ul>
-              {[...links, ['Search', '/search/']].map(([l, h], i) => (
+              {links.map(([l, h], i) => (
                 <motion.li key={h} initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.25 + i * 0.05, duration: 0.5 }}>
                   <Link href={h} className={isActive(h) ? 'active' : ''}>{l}</Link>
                 </motion.li>
