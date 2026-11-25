@@ -27,7 +27,27 @@ export default function BlockRenderer({ blocks }) {
           <div key={i} className="table-wrap">
             <table>
               <thead><tr>{b.headers.map((h, j) => <th key={j}>{h}</th>)}</tr></thead>
-              <tbody>{b.rows.map((r, j) => <tr key={j}>{r.map((c, k) => <td key={k}>{c}</td>)}</tr>)}</tbody>
+              <tbody>
+          {b.rows.map((r, j) => (
+            <tr key={j}>
+              {r.map((c, k) => (
+                <td key={k}>
+                  {typeof c === 'object' && c !== null ? (
+                    <a
+                      href={c.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {c.text}
+                    </a>
+                  ) : (
+                    c
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
             </table>
           </div>
         );
