@@ -3,8 +3,18 @@
   "seoTitle": "8 Upcoming Bikes in India 2026: Triumph, Yamaha, Harley",
   "slug": "8-upcoming-bikes-in-india-2026",
   "excerpt": "Discover 8 exciting upcoming bikes in India including Triumph Bonneville 350, Yamaha, Harley-Davidson, Bajaj and Royal Enfield launches expected in 2026.",
-   "categories": ["upcoming-bikes","bike-news", "best-bikes"],
-  "tags": ["Bajaj Adventure Bike", "Bike News India", "Harley Davidson X500", "New Bike Launches", "Royal Enfield Himalayan 450"],
+  "categories": [
+    "upcoming-bikes",
+    "bike-news",
+    "best-bikes"
+  ],
+  "tags": [
+    "Bajaj Adventure Bike",
+    "Bike News India",
+    "Harley Davidson X500",
+    "New Bike Launches",
+    "Royal Enfield Himalayan 450"
+  ],
   "date": "2026-11-23",
   "updated": "2026-11-23",
   "author": "RideVerdict Team",
@@ -398,16 +408,43 @@
     },
     {
       "type": "table",
-      "headers": ["Motorcycle", "Expected Launch"],
+      "headers": [
+        "Motorcycle",
+        "Expected Launch"
+      ],
       "rows": [
-        ["Triumph Bonneville 350", "Late 2026"],
-        ["Yamaha XSR 155", "2026"],
-        ["Yamaha MT-03 Update", "2026"],
-        ["Harley X500", "2026"],
-        ["Himalayan 450 Raid", "2026"],
-        ["Scram 450", "2026"],
-        ["Pulsar Adventure Bike", "2026"],
-        ["Bajaj-Triumph ADV", "2026"]
+        [
+          "Triumph Bonneville 350",
+          "Late 2026"
+        ],
+        [
+          "Yamaha XSR 155",
+          "2026"
+        ],
+        [
+          "Yamaha MT-03 Update",
+          "2026"
+        ],
+        [
+          "Harley X500",
+          "2026"
+        ],
+        [
+          "Himalayan 450 Raid",
+          "2026"
+        ],
+        [
+          "Scram 450",
+          "2026"
+        ],
+        [
+          "Pulsar Adventure Bike",
+          "2026"
+        ],
+        [
+          "Bajaj-Triumph ADV",
+          "2026"
+        ]
       ]
     },
     {
