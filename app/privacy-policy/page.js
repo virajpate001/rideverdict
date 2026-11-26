@@ -15,8 +15,8 @@ export default function privacy() {
         By using RideVerdict.in, you agree to the practices described in this
         Privacy Policy.
       </p>
-      <h2 id="information-we-collect">Information We Collect</h2>
-      <h3 id="personal-information">Personal Information</h3>
+      <h2>Information We Collect</h2>
+      <h3>Personal Information</h3>
       <p>
         We may collect personal information that you voluntarily provide,
         including:
@@ -27,7 +27,7 @@ export default function privacy() {
         <li>Contact information</li>
         <li>Information submitted through contact forms</li>
       </ul>
-      <h3 id="non-personal-information">Non-Personal Information</h3>
+      <h3>Non-Personal Information</h3>
       <p>We may automatically collect certain information, including:</p>
       <ul>
         <li>Browser type</li>
@@ -42,7 +42,7 @@ export default function privacy() {
         This information helps us improve website performance and user
         experience.
       </p>
-      <h2 id="how-we-use-your-information">How We Use Your Information</h2>
+      <h2>How We Use Your Information</h2>
       <p>We may use collected information to:</p>
       <ul>
         <li>Improve our website and content</li>
@@ -52,12 +52,12 @@ export default function privacy() {
         <li>Prevent fraud and security issues</li>
         <li>Comply with legal obligations</li>
       </ul>
-      <h2 id="cookies">Cookies</h2>
+      <h2>Cookies</h2>
       <p>
         RideVerdict uses cookies to enhance user experience and improve website
         functionality.
       </p>
-      <h3 id="non-personal-information">Non-Personal Information</h3>
+      <h3>Non-Personal Information</h3>
       <ul>
         <li>Remember user preferences</li>
         <li>Analyze website traffic</li>
@@ -65,7 +65,7 @@ export default function privacy() {
         <li>Deliver relevant advertisements</li>
       </ul>
       <p>You can choose to disable cookies through your browser settings.</p>
-      <h2 id="google-adsense">Google AdSense</h2>
+      <h2>Google AdSense</h2>
       <p>
         We may display advertisements through Google AdSense and other
         advertising partners.
@@ -81,7 +81,7 @@ export default function privacy() {
       <p>
         For more information, please visit Google’s Privacy &amp; Terms page.
       </p>
-      <h2 id="third-party-services">Third-Party Services</h2>
+      <h2>Third-Party Services</h2>
       <p>We may use third-party services such as:</p>
       <ul>
         <li>Google Analytics</li>
@@ -97,7 +97,7 @@ export default function privacy() {
         We are not responsible for the privacy practices of third-party
         websites.
       </p>
-      <h2 id="affiliate-disclosure">Affiliate Disclosure</h2>
+      <h2>Affiliate Disclosure</h2>
       <p>
         Some pages may contain affiliate links. If you purchase products through
         these links, RideVerdict may earn a commission at no additional cost to
@@ -107,7 +107,7 @@ export default function privacy() {
         Affiliate relationships do not influence our editorial opinions,
         reviews, or recommendations.
       </p>
-      <h2 id="data-security">Data Security</h2>
+      <h2>Data Security</h2>
       <p>
         We implement reasonable security measures to protect your information
         from unauthorized access, disclosure, or misuse.
@@ -116,7 +116,7 @@ export default function privacy() {
         However, no internet transmission or storage system can be guaranteed to
         be completely secure.
       </p>
-      <h2 id="external-links">External Links</h2>
+      <h2>External Links</h2>
       <p>
         Our website may contain links to external websites. We are not
         responsible for the privacy practices or content of third-party
@@ -125,22 +125,20 @@ export default function privacy() {
       <p>
         Users should review the privacy policies of those websites separately.
       </p>
-      <h2 id="children-s-privacy">Children&#39;s Privacy</h2>
+      <h2>Children's Privacy</h2>
       <p>RideVerdict is not intended for children under the age of 13.</p>
       <p>
         We do not knowingly collect personal information from children. If we
         become aware that such information has been collected, we will take
         appropriate steps to remove it.
       </p>
-      <h2 id="changes-to-this-privacy-policy">
-        Changes to This Privacy Policy
-      </h2>
+      <h2>Changes to This Privacy Policy</h2>
       <p>
         We may update this Privacy Policy from time to time. Changes will be
         posted on this page along with the updated revision date.
       </p>
       <p>We encourage users to review this page periodically.</p>
-      <h2 id="contact-us">Contact Us</h2>
+      <h2>Contact Us</h2>
       <p>
         If you have any questions regarding this Privacy Policy, please contact
         us:
