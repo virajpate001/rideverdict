@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
         <div className="wordmark" aria-hidden="true">RIDEVERDICT</div>
       </div>
-      <p className="copy">© {new Date().getFullYear()} RideVerdict.in. All Rights Reserved.</p>
+      <p className="copy">© {new Date().getFullYear()} RideVerdict.in. All Rights Reserved. Design & Developed by <Link href="https://viraj-pate.vercel.app/" target="_blank">Viraj Pate</Link> </p>
     </footer>
   );
 }
