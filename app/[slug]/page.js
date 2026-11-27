@@ -104,12 +104,12 @@ export default async function PostPage({ params }) {
               <Link href="/">Home</Link> /{" "}
               <Link href={`/category/${post.category}/`}>{cat?.name}</Link>
             </p>
-            <h1 className="display" data-lines>
+           <h1 className="display intro-lines">
               <span className="line">
                 <span>{post.title}</span>
               </span>
             </h1>
-            <div className="article-meta" data-reveal data-delay=".2">
+            <div  className="article-meta intro" style={{ '--d': '.2s' }}>
               <span>By {post.author}</span>
               <span>{formatDate(post.date)}</span>
               {post.updated && post.updated !== post.date && (
@@ -118,7 +118,7 @@ export default async function PostPage({ params }) {
               <span>{post.readingTime} min read</span>
             </div>
 
-            <div className="cat-pills" data-reveal data-delay=".3">
+            <div className="cat-pills" style={{ '--d': '.2s' }}>
               {cats.map((c) => (
                 <Link key={c.slug} href={`/category/${c.slug}/`}>
                   {c.name}
@@ -128,10 +128,11 @@ export default async function PostPage({ params }) {
           </header>
 
           {post.image?.url && (
-            <div className="article-cover" data-mask>
+            <div className="article-cover">
               <img
                 src={cld(post.image.url, 1400)}
                 alt={post.image.alt || post.title}
+                fetchPriority="high"
               />
             </div>
           )}

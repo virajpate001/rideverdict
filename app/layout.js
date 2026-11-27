@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import MotionProvider from '@/components/MotionProvider';
 import Cursor from '@/components/Cursor';
 import site from '@/content/site.json';
+import Enhancements from '@/components/Enhancements';
 
 const sora = Sora({ subsets: ['latin'], variable: '--font-sora', display: 'swap' });
 const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope', display: 'swap' });
@@ -31,19 +32,19 @@ export default function RootLayout({ children }) {
     <html lang="en-IN" className={`${sora.variable} ${manrope.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         {/* Adds .js (enables hidden-until-animated states) + a failsafe if scripts never load */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js');window.__rvFail=setTimeout(function(){document.documentElement.classList.remove('js')},5000)" }} />
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js');window.__rvFail=setTimeout(function(){document.documentElement.classList.remove('js')},8000)" }} />
       </head>
       <body>
         <a className="skip" href="#main">Skip to content</a>
-        <MotionProvider />
-        <Cursor />
+        <Enhancements />
+        
         <Header />
         <main id="main">{children}</main>
         <Footer />
         {site.gaId && (
           <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`} strategy="afterInteractive" />
-            <Script id="ga" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${site.gaId}');`}</Script>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`} strategy="lazyOnload" />
+            <Script id="ga" strategy="lazyOnload">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${site.gaId}');`}</Script>
           </>
         )}
       </body>

@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import SearchButton from './SearchButton';
 
 const links = [
@@ -34,9 +33,8 @@ export default function Header() {
       <header className={`header ${scrolled ? 'scrolled' : ''}`}>
         <div className="container">
           <Link href="/" aria-label="RideVerdict home">
-            <img src="/white-logo.webp" alt="RideVerdict" style={{ height: 34, width: 'auto' }} />
+            <img src="/white-logo.webp" alt="RideVerdict" width="160" height="34" style={{ height: 34, width: 'auto' }} />
           </Link>
-
           <div className="header-right">
             <nav aria-label="Main">
               <ul className="nav">
@@ -53,25 +51,15 @@ export default function Header() {
         </div>
       </header>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            className="mobile-menu"
-            initial={{ clipPath: 'inset(0 0 100% 0)' }}
-            animate={{ clipPath: 'inset(0 0 0% 0)' }}
-            exit={{ clipPath: 'inset(0 0 100% 0)' }}
-            transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          >
-            <ul>
-              {links.map(([l, h], i) => (
-                <motion.li key={h} initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.25 + i * 0.05, duration: 0.5 }}>
-                  <Link href={h} className={isActive(h) ? 'active' : ''}>{l}</Link>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div className={`mobile-menu ${open ? 'open' : ''}`} aria-hidden={!open}>
+        <ul>
+          {links.map(([l, h], i) => (
+            <li key={h} style={{ '--i': i }}>
+              <Link href={h} className={isActive(h) ? 'active' : ''} tabIndex={open ? 0 : -1}>{l}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

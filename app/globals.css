@@ -1269,3 +1269,19 @@ html.search-open{overflow:hidden}
 .form-msg{margin:0;padding:14px 18px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--card);color:var(--text);font-size:15px}
 .form-msg.ok{border-color:#2f7d4f}
 .form-msg.err{border-color:var(--accent)}
+
+
+/* ===== CSS-only intro (no JS needed → instant LCP) ===== */
+@keyframes lineUp{from{transform:translateY(110%)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}}
+.intro-lines .line>span{animation:lineUp .9s var(--ease) both}
+.intro-lines .line:nth-child(2)>span{animation-delay:.08s}
+.intro-lines .line:nth-child(3)>span{animation-delay:.16s}
+.intro{animation:fadeUp .8s var(--ease) both;animation-delay:var(--d,0s)}
+
+
+.mobile-menu{clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .6s cubic-bezier(.76,0,.24,1),visibility 0s .6s}
+.mobile-menu.open{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .6s cubic-bezier(.76,0,.24,1),visibility 0s}
+.mobile-menu li{opacity:0;transform:translateY(30px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.mobile-menu.open li{opacity:1;transform:none;transition-delay:calc(.25s + var(--i) * .05s)}
+@media(min-width:1101px){.mobile-menu{display:none}}

@@ -28,22 +28,22 @@ export default function Home() {
           {site.heroImage && <img src={cld(site.heroImage, 1800)} alt="" />}
         </div>
         <div className="container">
-          <p className="eyebrow" data-reveal>{site.tagline}</p>
-          <h1 className="display hero-title" data-lines data-delay=".15">
-            <span className="line"><span>Compare bikes.</span></span>
-            <span className="line"><span>Read real reviews.</span></span>
-            <span className="line"><span>Ride the <em className="hl">right one.</em></span></span>
-          </h1>
+          <p className="eyebrow intro">{site.tagline}</p>
+         <h1 className="display hero-title intro-lines">
+  <span className="line"><span>Compare bikes.</span></span>
+  <span className="line"><span>Read real reviews.</span></span>
+  <span className="line"><span>Ride the <em className="hl">right one.</em></span></span>
+</h1>
           <div className="hero-foot">
-            <p className="lead" data-reveal data-delay=".5">
-              India’s bike comparison, review and buying-guide platform, with prices, mileage and specs to help you decide with confidence.
-            </p>
-            <div className="hero-cta" data-reveal data-delay=".65">
-              <Link className="btn" href="/blog/">Explore all blogs <Arrow /></Link>
-              <Link className="btn btn-ghost" href="/category/bike-comparisons/">Bike comparisons</Link>
-            </div>
-          </div>
-          <dl className="stats" data-reveal data-delay=".8">
+  <p className="lead intro" style={{ '--d': '.2s' }}>
+    India’s bike comparison, review and buying-guide platform, with prices, mileage and specs to help you decide with confidence.
+  </p>
+  <div className="hero-cta intro" style={{ '--d': '.3s' }}>
+    <Link className="btn" href="/blog/">Explore all blogs <Arrow /></Link>
+    <Link className="btn btn-ghost" href="/category/bike-comparisons/">Bike comparisons</Link>
+  </div>
+</div>
+          <dl className="stats intro" style={{ '--d': '.4s' }}>
             <div><dt>{posts.length}</dt><dd>Articles</dd></div>
             <div><dt>{categories.length}</dt><dd>Categories</dd></div>
             <div><dt>{tools.length}</dt><dd>Free tools</dd></div>
