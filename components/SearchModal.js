@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { loadIndex, search, norm, words } from '@/lib/search';
 import { formatDate } from '@/lib/utils';
+import { track } from '@/lib/analytics';
 
 /* ---------- icons ---------- */
 const I = (p) => (
@@ -138,7 +139,9 @@ export default function SearchModal({ open, onClose }) {
 
   /* ---- actions ---- */
   const go = (url) => { closeRef.current(); router.push(url); };
-  const pick = (row) => {
+   const pick = (row) => {
+    if (q.trim()) track('search', { search_term: q.trim() });
+    track('select_content', { content_type: row.k, item_id: row.u });
     writeRecent([{ t: row.t, u: row.u, i: row.i || '' }, ...readRecent().filter((r) => r.u !== row.u)].slice(0, 5));
     go(row.u);
   };

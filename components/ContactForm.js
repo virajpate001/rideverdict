@@ -1,6 +1,7 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import site from '@/content/site.json';
+import { track } from '@/lib/analytics';
 
 const rand = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a;
 
@@ -57,6 +58,7 @@ export default function ContactForm() {
       });
       const j = await r.json();
       if (j.success) {
+        track('generate_lead', { form: 'contact' });
         setStatus('sent');
         form.reset();
       } else {
