@@ -1257,3 +1257,15 @@ html.search-open{overflow:hidden}
 .cat-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .cat-pills a{padding:7px 14px;border:1px solid var(--border);border-radius:999px;font:700 11px var(--f-sub);letter-spacing:.14em;text-transform:uppercase;color:var(--text-2);transition:border-color .3s,color .3s,background .3s}
 .cat-pills a:hover{border-color:var(--accent);color:var(--text);background:rgba(237,27,36,.08)}
+
+/* ===== Math captcha ===== */
+.captcha{display:grid;gap:10px}
+.captcha-box{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.captcha-q{display:inline-flex;align-items:center;justify-content:center;min-width:140px;padding:14px 20px;border-radius:var(--radius-sm);background:var(--elevated);border:1px solid var(--border);font:700 22px var(--f-head);letter-spacing:.04em;color:var(--text);user-select:none;white-space:pre}
+.captcha-q em{font-style:normal;color:var(--accent);margin-left:10px}
+.captcha-input{width:120px}
+.captcha-refresh{width:48px;height:48px}
+.captcha-help{font-size:13px;color:var(--muted)}
+.form-msg{margin:0;padding:14px 18px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--card);color:var(--text);font-size:15px}
+.form-msg.ok{border-color:#2f7d4f}
+.form-msg.err{border-color:var(--accent)}
