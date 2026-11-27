@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cld, formatDate } from "@/lib/utils";
+import { cld,cldSet, formatDate } from "@/lib/utils";
 import { getCategory } from "@/lib/posts";
 
 export default function PostCard({ post, size = "", mask = false }) {
